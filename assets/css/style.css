@@ -1,0 +1,2530 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; scroll-behavior: smooth; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================================================================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { zoom: 1; }
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 1.3. Font class declaration
+   ========================================================================== */
+/*
+ * Mention the font property (eg: font-family, font-size, font-weight, font-style
+ * etc) that have been commonly used in the html document. Make a class of it and
+ * apply to the element wherever it is needed. If any single property in changed,
+ * then override only that property in the particular class which is used for the
+ * element.
+ * (NOTE: Remove this commented code once you start 
+ * developing the code. Remove the following font class and add your own
+ * as this is just and example to let you know. If there is only one font family
+ * followed throughout the site, then menstion the font property in body. No need
+ * of creating an extra class for it) */
+
+.futura-bold-font {
+  font-family: 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* common styling starts here */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.icon {
+  width: 34px;
+  height: 34px;
+  display: inline-block;
+  position: relative;
+  text-indent: -9999px;
+}
+
+.icon::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "FontAwesome";
+  text-indent: 0;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 30px;
+  background-color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all .2s ease-in;
+}
+
+.section-sub-heading {
+  color: #89B758;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  font-size: 52px;
+  color: #fff;
+  font-weight: 900;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.section-para {
+  margin-top: 17px;
+  width: 64%;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+/* modal styling here  */
+
+.modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 35%;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.close {
+  position: absolute;
+  top: 62px;
+  width: 30px;
+  height: 55px;
+  right: 50px;
+  color: #fff;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+/* .product-head {
+  padding: 10px 0;
+  width: 100%;
+  background-color: #DAA521;
+  color: #457808;
+  font-weight: 700;
+  text-align: center;
+} */
+
+/*for wrapper*/
+.wrapper {
+  width: 83.20%;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+html.hidden { overflow-y: hidden; }
+
+/* common styling ends here */
+
+/*=================================
+  Header styling starts here
+=================================*/
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 5px;
+  z-index: 2;
+}
+
+header .wrapper {
+  padding: 5px 0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #89B758;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.logo img {
+  margin-right: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.dropdown-content { display: none; }
+
+nav { width: 50%; }
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list li a {
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all .3s ease-in;
+}
+
+.nav-list li .buynow-btn { 
+  color: #EC3D2E;
+  transition: all .3s ease-in;
+}
+
+.nav-list li {
+  margin-right: 3%;
+  text-align: center;
+}
+
+.dropdown-content li:not(:last-child) { margin-right: 0; }
+
+.dropdown-icon::after {
+  margin-left: 10px;
+  font-family: "FontAwesome";
+  content: "\f0d7";
+  font-size: 14px;
+}
+
+.hamburger { display: none; }
+
+.bar {
+  width: 18px;
+  height: 2px;
+  margin: 4px;
+  display: block;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  text-indent: -9999px;
+}
+
+/* dropdown styling here */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  min-width: 160px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 12px 0px #000000a8;
+  transition: all .3s ease-in-out;
+}
+
+.dropdown-content li { display: block; }
+
+.dropdown-content li a {
+  padding: 12px 16px;
+  display: block;
+  color: #000;
+}
+
+.dropdown-content a:hover { background-color: #ddd; }
+.dropdown:hover .dropdown-content { display: block; }
+
+/*=================================
+  Header styling ends here
+=================================*/
+
+/*=================================
+  banner styling starts here
+=================================*/
+
+.banner-section {
+  padding: 75px 0;
+  min-height: 1090px;
+  display: flex;
+  justify-content: center;
+  background-color: #89B758;
+}
+
+.banner-container {
+  margin-top: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-container .section-heading { width: 100%; }
+
+.order-now-btn {
+  padding: 19px 45px;
+  margin-top: 36px;
+  color: #353434;
+  transition: all .3s ease-in;
+}
+
+.order-icon::before {
+  margin-right: 12px;
+  font-family: "FontAwesome";
+  content: "\f07a";
+}
+
+.banner-fig {
+  margin-top: 50px;
+  width: 66%;
+}
+
+.banner-fig img {
+  width: 100%;
+  height: 100%;
+}
+
+/*=================================
+  banner styling ends here
+=================================*/
+
+/*=================================
+  fast-food-section styling starts here
+=================================*/
+
+.fast-food-section { padding: 50px 0 100px 0; }
+
+.fast-food-section .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h3-heading {
+  margin-top: 8px;
+  color: #29361A;
+  text-transform: initial;
+  line-height: 63px;
+}
+
+.fast-food-list {
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fast-food-list li {
+  height: 410px;
+  display: flex;
+  justify-content: center;
+  flex-basis: 31.3%;
+  position: relative;
+}
+
+.fast-food-list li:nth-child(n + 4) { margin-top: 65px; }
+/* .fast-food-list li:nth-child(3) { margin-top: 65px; } */
+.fast-food-list li:not(:last-child) { margin-right: 2.5%; }
+.fast-food-list li:nth-child(3n) { margin-right: 0; }
+
+.fast-food-list .thai-food-fig {
+  width: 100%;
+  height: 100%;
+}
+
+.fast-food-list .thai-food-fig img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thai-food-heading {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.grey-para {
+  margin-top: 5px;
+  width: 90%;
+  color: #9296A4;
+}
+
+.dish-price {
+  margin-top: 10px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.cart-icon {
+  margin-top: 20px;
+  width: 56px;
+  height: 56px;
+}
+
+.cart-icon::before {
+  padding: 18px;
+  border-radius: 50%;
+  background-color: #89B758;
+  color: #fff;
+  content: "\f07a";
+  transition: all .3s ease-in;
+}
+
+.fast-food-info {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 84%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: -40px;
+  background-color: #fff;
+}
+
+.fast-food-info .section-para { width: 100%; }
+
+/*=================================
+  fast-food-section styling ends here
+=================================*/
+
+/*=================================
+  about-section styling starts here
+=================================*/
+
+.about-section { background-color: #FAFAFA; }
+.about-top { padding: 90px 0; }
+
+.about-container {
+  height: 470px;
+  display: flex;
+}
+
+.about-side-fig {
+  margin-right: 3%;
+  width: 50.8%;
+}
+
+.about-side-fig img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-info {
+  padding: 20px 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #FFFFFF;
+}
+
+.about-right-fig { margin-right: 0; }
+
+.read-more-btn {
+  padding: 18px 8%;
+  position: absolute;
+  bottom: -25px;
+  background-color: #89B758;
+  color: #fff;
+}
+
+.read-more-btn::before {
+  margin-right: 10px;
+  font-family: "FontAwesome";
+  content: "\f04b";
+}
+
+.about-info .section-para {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  line-height: 25px;
+}
+
+/* about-bottom styling */
+.about-bottom { padding: 54px 0; }
+
+.about-bottom .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-circle-container {
+  border-radius: 50%;
+  width: 70%;
+  min-height: 800px;
+  display: flex;
+  background-color: #89B758;
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  margin-top: 75px;
+  width: 56%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.about-bottom-fig {
+  width: 100%;
+  height: 100%;
+}
+
+.about-bottom-fig img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-bottom-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: start;
+}
+
+.about-bottom-list li { width: 44%; }
+
+.about-bottom-list li span {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: #fff;
+}
+
+.new-food-icon::before {
+  margin-bottom: 15px;
+  font-size: 65px;
+  font-family: "FontAwesome";
+  content: "\f179";
+}
+
+.quality-food-icon::before {
+  margin-bottom: 15px;
+  font-size: 65px;
+  font-family: "FontAwesome";
+  content: "\f0ac";
+}
+
+.chef-icon::before {
+  margin-bottom: 15px;
+  font-size: 65px;
+  font-family: "FontAwesome";
+  content: "\f007";
+}
+
+.fast-delivery-icon {
+  width: 44%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fast-delivery-icon::before {
+  margin-bottom: 15px;
+  font-size: 65px;
+  font-family: "FontAwesome";
+  content: "\f4de";
+}
+
+/*=================================
+  about-section styling ends here
+=================================*/
+
+/*=================================
+menu-section styling starts here
+=================================*/
+
+.menu-section { padding: 50px 0; }
+
+.menu-section .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-section .section-heading { color: #000; }
+
+.menu-list-filter {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.item-heading {
+  padding: 5px 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.item-heading.active-item {
+  border-radius: 12px;
+  background-color: #89B758;
+  color: #fff;
+}
+
+.menu-list-filter li {
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+
+.menu-list-items {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-list-items li.hidden { display: none; }
+
+.menu-list-items li {
+  display: flex;
+  flex-basis: 48%;
+}
+
+.menu-list-items li:nth-child(odd) { margin-right: 30px; }
+.menu-list-items li:nth-child(n + 3) { margin-top: 30px; }
+
+.menu-fig {
+  margin-right: 6%;
+  width: 39%;
+  height: 75%;
+}
+
+.menu-fig img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-item-info .section-para {
+  width: 100%;
+  text-align: start;
+}
+
+.menu-name-price {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-item-info .thai-food-heading { text-transform: capitalize;}
+
+.menu-item-info .thai-food-heading::after {
+  color: #9296A4;
+  font-size: 20px;
+  content: " . . . . . . . . . . . . . . . . . . . . ";
+}
+
+.menu-dish-price {
+  color: #89B758;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/*=================================
+menu-section styling ends here
+=================================*/
+
+/*=================================
+delivery-rewards-section styling starts here
+=================================*/
+
+.delivery-rewards-section { 
+  padding: 90px 0 230px 0;
+  background-color: #232323;
+}
+
+.delivery-rewards-section .wrapper { display: flex; }
+
+.delivery-fig {
+  min-width: 37%;
+  height: 100%;
+  align-self: flex-end;
+  position: relative;
+  bottom: -150px;
+}
+
+.delivery-fig img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.delivery-rewards-section .section-sub-heading { color: #E7272D; }
+
+.delivery-container .section-heading,
+.reward-container .section-heading {
+  margin-top: 10px;
+  line-height: 70px;
+  text-align: start;
+  text-transform: initial;
+}
+
+.reward-container .section-heading { text-align: end; }
+
+.delivery-container .section-para {
+  width: 100%;
+  text-align: start; 
+}
+
+.reward-container .section-para {
+  width: 100%;
+  text-align: end;
+}
+
+.reward-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+}
+
+.order-now-icon::before {
+  margin-right: 15px;
+  font-family: "FontAwesome";
+  font-size: 18px;
+  content: "\f007";
+}
+
+.learn-more-btn,
+.order-btn {
+  padding: 17px 13.2%;
+  margin-top: 35px;
+  margin-right: 10px;
+  background-color: #E7272D;
+  color: #fff;
+}
+
+.order-btn { margin-left: 10px; }
+
+.learn-more::before {
+  margin-right: 15px;
+  font-family: "FontAwesome";
+  font-size: 18px;
+  content: "\f05a";
+}
+
+/*=================================
+delivery-rewards-section styling ends here
+=================================*/
+
+
+/*=================================
+news-section styling ends here
+=================================*/
+
+.news-section { padding: 60px 0; }
+
+.news-section .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.news-section .section-sub-heading { color: #E7272D; }
+
+.news-section .section-heading { 
+  color: #000;
+  text-transform: initial;
+}
+
+.news-blogs-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.news-blogs-container article {
+  padding: 0 2% 20px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 31%;
+}
+
+.news-article {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.news-blogs-container article:not(:last-child) { margin-right: 3%; }
+.news-blogs-container article:nth-child(n + 4) { margin-top: 30px;}
+
+.news-fig a {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.news-fig {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+  height: 223px;
+}
+
+.news-fig img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-info { 
+  padding: 0 20px 20px;
+  margin-top: 30px;
+}
+
+.article-info .thai-food-heading { text-align: start; }
+
+.article-info .section-para {
+  width: 100%;
+  text-align: start;
+  line-height: 27px;
+}
+
+.read-more { 
+  margin-top: 20px;
+  color: #232323;
+  font-weight: 500;
+  transition: all .3s ease-in;
+}
+
+.read-more::after {
+  margin-left: 10px;
+  font-family: "FontAwesome";
+  content: "\f178";
+  font-weight: 400;
+}
+
+.margin-right { margin-right: 20px; }
+
+.location-icon {
+  color: #E7272D;
+  text-transform: uppercase;
+}
+
+.location-icon::before {
+  margin-right: 10px;
+  font-family: "FontAwesome";
+  content: "\f3c5";
+}
+
+.article-info .thai-food-heading { margin-top: 14px; }
+.thai-food-heading a { color: #232323; }
+
+/*=================================
+news-section styling ends here
+=================================*/
+
+/*=================================
+video section styling stats here
+=================================*/
+
+.latest-watch-section { padding: 50px 0; }
+
+.latest-watch-section .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.latest-watch-section .section-heading {
+  color: #000;
+  text-transform: capitalize;
+}
+
+.watch-video {
+  margin-top: 40px;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content .watch-video { margin-top: 0; }
+
+/*=================================
+video section styling ends here
+=================================*/
+
+/*=================================
+review section styling starts here
+=================================*/
+
+.review-section {
+  padding: 100px 0 130px;
+  background-color: #F3F7EE;
+}
+
+.review-section .wrapper {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.review-section .section-heading {
+  color: #0E0E0E;
+  text-transform: initial;
+}
+
+.review-list { 
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+}
+
+/* .review-list li:not(:first-child) { display: none; } */
+
+.review-list::-webkit-scrollbar { display: none; }
+
+.review-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  transition: all .2s ease;
+}
+
+.slider-profilei-fig {
+  margin-top: 40px;
+  width: 100px;
+  height: 100px;
+}
+
+.slider-profilei-fig img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-para {
+  width: 70%;
+  z-index: 1;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: center;
+}
+
+.review-list .thai-food-heading { margin-top: 10px; }
+
+.position-info {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #9296A4;
+}
+
+.prev-next-btn {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 45%;
+  left: 5px;
+  right: 5px;
+}
+
+.previous,
+.next {
+  width: 42px;
+  height: 66px;
+  border: none;
+  background: none;
+  font-size: 10px;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+}
+
+.previous::before {
+  font-family: "FontAwesome";
+  color: #818080;
+  font-size: 70px;
+  content: "\f053";
+}
+
+.next::before {
+  font-family: "FontAwesome";
+  color: #818080;
+  font-size: 70px;
+  content: "\f054";
+}
+
+.slider-info {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.para-bg {
+  position: absolute;
+  bottom: -165px;
+  color: #c0bbbbd2;
+  font-size: 200px;
+}
+
+/*=================================
+review section styling ends here
+=================================*/
+
+/*=================================
+contact us section styling starts here
+=================================*/
+
+.contact-us-top {
+  padding-top: 30px;
+  background-color: #89B758;
+}
+
+.contact-us-top .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-us-top .section-heading { text-align: start; }
+
+.contact-us-top .section-para {
+  width: 100%;
+  text-align: start;
+}
+
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 70%;
+}
+
+.subscribe-container .h3-heading { color: #fff; }
+
+.subscribe-container .section-para { margin-top: 0; }
+
+.subscribe-btn {
+  padding: 10px 7%;
+  border: none;
+  background-color: #29361A;
+  color: #fff;
+  font-size: 16px;
+}
+
+.subscribe-icon::before {
+  margin-right: 10px;
+  font-family: "FontAwesome";
+  content: "\f0f3";
+}
+
+.subscribe-form {
+  margin-top: 25px;
+  display: flex;
+}
+
+.subscribe-input-grp {
+  margin-right: 10px;
+  width: 53%;
+}
+
+.subscribe-input {
+  padding: 23px;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.subscribe-fig {
+  width: 32%;
+  height: 80%;
+}
+
+.subscribe-fig img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* contact us botto */
+
+.contact-us-bottom { padding: 70px 0; }
+
+.contact-heading {
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: initial;
+}
+
+.contact-container form { margin-top: 24px; }
+
+.contact-container .input-grp input,
+.textarea-input textarea {
+  padding: 23px 28px;
+  border-radius: 10px;
+  border: 1px solid #818080;
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.textarea-input,
+.subscribe-input-grp { position: relative; }
+
+.contact-container .input-grp {
+  margin-bottom: 15px; 
+  position: relative;
+}
+
+::placeholder { font-size: 16px; }
+.contact-us-bottom .wrapper { display: flex; }
+.contact-container { margin-right: 3%; }
+
+.send-msge-btn {
+  padding: 22px 9%;
+  border: none;
+  border-radius: 35px;
+  margin-top: 17px; 
+  background-color: #89B758;
+  color: #fff;
+  font-size: 16px;
+  word-spacing: 2px;
+}
+
+/* map  */
+.contact-container { width: 51%; }
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 49%;
+  height: 100%;
+  filter: grayscale(100%);
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none;
+  width: 100%;
+  height: 100%;
+}
+
+.gmap_iframe {
+  width: 600px;
+  height: 553px;
+}
+
+.error-text {
+  margin-top: 5px;
+  color: #ff0000;
+  font-size: 11px;
+  position: absolute;
+  bottom: -15px;
+}
+
+/*=================================
+contact us section styling ends here
+=================================*/
+
+/*=================================
+footer section styling starts here
+=================================*/
+
+.footer-top {
+  padding: 65px 0 30px;
+  background-color: #F3F7EE;
+}
+
+.footer-top .wrapper { 
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-list li:not(:last-child) { margin-bottom: 30px; }
+
+.address::before {
+  margin-right: 13px;
+  color: #89B758;
+  font-family: "FontAwesome";
+  content: "\f3c5";
+}
+
+.address {
+  margin-top: 0;
+  width: 45%;
+}
+
+.phone::before {
+  margin-right: 13px;
+  font-family: "FontAwesome";
+  content: "\f095";
+}
+
+.phone {
+  margin-top: 0;
+  color: #89B758;
+  font-weight: 600;
+}
+
+.time {
+  margin-top: 0;
+  width: 50%;
+}
+
+.time::before {
+  margin-right: 13px;
+  color: #89B758;
+  font-family: "FontAwesome";
+  content: "\f017";
+}
+
+.logo-description,
+.contact-info-list { 
+  flex-basis: 50%;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+}
+
+.logo-description {
+  margin-right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.logo-description .logo,
+.logo-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.logo-description .logo img { margin-right: 0; }
+
+.logo-description .section-para {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.feed-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #29361A;
+}
+
+.feed-list {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+}
+
+.feed-list li {
+  width: 115px;
+  height: 110px;
+}
+
+.feed-list li:not(:last-child) { margin-right: 2%; }
+
+.feed-list li a {
+  width: 100%;
+  height: 100%;
+}
+
+.feed-list li a img {
+  border-radius: 7px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* footer bottom styling */
+.footer-bottom {
+  padding: 63px 0;
+  background-color: #89B758;
+}
+
+.footer-nav-list li:not(:last-child) { margin-right: 20px; }
+
+.footer-nav-list li a { 
+  color: #fff;
+  transition: all .3s ease-in;
+}
+
+.footer-nav-list { margin-bottom: 20px; }
+.copyright { color: #fff; }
+
+.footer-bottom .wrapper { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-media-list li:not(:last-child) { margin-right: 12px; }
+
+.footer-icon-bg {
+  width: 40px;
+  height: 47px;
+}
+
+.footer-icon-bg::before {
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  background-color: #29361A;
+  color: #fff;
+  font-size: 20px;
+  transition: all .3s ease-in;
+}
+
+.facebook-icon::before {
+  padding: 11px 16px;
+  font-family: "FontAwesome";
+  content: "\f39e";
+}
+
+.twitter-icon::before {
+  padding: 13px 14px;
+  font-family: "FontAwesome";
+  content: "\f099";
+}
+
+.youtube-icon::before {
+  padding: 12px 13px;
+  font-family: "FontAwesome";
+  content: "\f167"; 
+}
+
+.vimeo-icon::before {
+  padding: 12px 15px;
+  font-family: "FontAwesome";
+  content: "\f27d";
+}
+
+/*=================================
+footer section styling ends here
+=================================*/
+
+/*=================================
+  media query for 995 above starts here
+=================================*/
+/* hover effects */
+
+@media only screen and (min-width: 995px) {
+  
+  .nav-list li a:hover,
+  .phone:hover,
+  .footer-nav-list li a:hover  {
+    transition: all .3s ease-in-out;
+    color: #E7272D;
+  }
+  
+  .nav-list li .buynow-btn:hover {
+    background-color: #E7272D;
+    color: #fff;
+  }
+
+  .order-now-btn:hover {
+    background-color: #353434;
+    color: #fff;
+  }
+
+  .cart-icon:hover::before,
+  .read-more-btn:hover,
+  .send-msge-btn:hover {
+    background-color: #353434;
+    color: #89B758;
+  }
+
+  .menu-list-filter li:hover {
+    background-color: #89B758;
+    color: #fff;
+  }
+
+  .learn-more-btn:hover,
+  .order-btn:hover {
+    background-color: #fff;
+    color: #E7272D;
+  }
+
+  .read-more:hover { color: #89B758; }
+
+  .previous:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+  }
+
+  .next:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+  }
+
+  .subscribe-btn:hover,
+  .footer-icon-bg:hover:before {
+    background-color: #fff;
+    color: #29361A;
+  }
+
+}
+
+/*=================================
+  media query for 995 above ends here
+=================================*/
+
+@media only screen and (max-width: 1440px) {
+
+  .modal-content { width: 37%; }
+
+}
+
+/*=================================
+  media query for 1280px starts here
+=================================*/
+
+@media only screen and (max-width: 1280px) {
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . . . . . . . . . . . ";
+  }
+
+  .menu-fig {
+    width: 50%;
+    height: 60%;
+  }
+
+  .address,
+  .time { width: 80%; }
+
+  .modal-content { width: 40%; }
+
+}
+
+/*=================================
+  media query for 1280px ends here
+=================================*/
+
+/*=================================
+  media query for 1210 starts here
+=================================*/
+
+@media only screen and (max-width: 1210px) {
+
+  nav { width: 60%; }
+
+  .fast-food-list li {
+    height: 400px;
+  }
+
+  .about-side-fig { width: 82%; }
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . . . . . . . . ";
+  }
+
+  .menu-fig {
+    width: 60%;
+    height: 60%;
+  }
+
+  .menu-name-price .thai-food-heading {
+    font-size: 19px;
+  }
+
+  .menu-dish-price { font-size: 19px; }
+
+  .about-circle-container {
+    width: 68vw;
+    height: 68vw;
+  }
+
+  .modal-content { width: 42%; }
+
+}
+
+/*=================================
+  media query for 1210 ends here
+=================================*/
+
+/*=================================
+  media query for 995 starts here
+=================================*/
+
+@media only screen and (max-width: 995px) {
+
+  .banner-section { min-height: 0; }
+
+  header {
+    top: 0;
+    background-color: #89B758;
+  }
+
+  header .wrapper {
+    width: 85%;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  nav { display: none; }
+  .hamburger.active-nav .bar:nth-child(2) { opacity: 0; }
+  
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active-nav .bar:nth-child(1) {
+    -webkit-transform: translateY(6px) rotate(45deg);
+    -ms-transform: translateY(6px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger.active-nav .bar:nth-child(3) {
+    -webkit-transform: translateY(-6px) rotate(-45deg);
+    -ms-transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .section-para { width: 75%; }
+
+  .fast-food-list li {
+    height: 350px;
+  }
+
+  .fast-food-info {
+    padding: 16px;
+    bottom: -60px;
+  }
+
+  .thai-food-heading { font-size: 20px; }
+
+  .fast-food-info .section-para {
+    margin-top: 0;
+    font-size: 13px;
+    line-height: 25px;
+  }
+
+  .dish-price { font-size: 19px; }
+  .cart-icon::before { padding: 16px; }
+
+  .cart-icon {
+    margin-top: 17px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .fast-food-list li:nth-child(n + 4) { margin-top: 85px; }
+  .about-side-fig { width: 100%; }
+
+  .about-info .h3-heading { 
+    font-size: 45px;
+    line-height: 52px;
+  }
+
+  .about-info .section-para { 
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .read-more-btn { 
+    padding: 13px 8%;
+    font-size: 14px;
+  }
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . . ";
+  }
+
+  .menu-list-items li { flex-basis: 46%;}
+
+  .menu-fig {
+    width: 90%;
+    height: 35%;
+  }
+
+  .menu-item-info .section-para {
+    font-size: 13px;
+    line-height: 23px;
+  }
+
+  .menu-name-price .thai-food-heading {
+    font-size: 17px;
+  }
+
+  .menu-dish-price { font-size: 17px; }
+
+  .delivery-rewards-section .section-heading { 
+    font-size: 45px;
+    line-height: 52px;
+  }
+
+  .learn-more-btn, 
+  .order-btn {
+    padding: 13px 11%;
+    font-size: 14px;
+  }
+
+  .reward-container .section-para { font-size: 13px; }
+  .news-blogs-container article { flex-basis: 48%; }
+  .news-blogs-container article:nth-child(n + 3) { margin-top: 25px; }
+  .news-blogs-container article:nth-child(2n) { margin-right: 0; }
+  
+  .subscribe-btn {
+    padding: 8px 5%;
+    font-size: 13px;
+  }
+
+  .subscribe-input { padding: 18px; }
+  ::placeholder { font-size: 14px; }
+
+  .send-msge-btn {
+    padding: 18px 8%;
+    font-size: 14px;
+  }
+
+  .about-circle-container {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .modal-content { width: 44%; }
+
+  /* hamberger navbar */
+  header .navbar.active-nav{  left: 0; }
+
+  header .navbar{
+    width: 100%;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    z-index: 1;
+    top: 100%;
+    left: 100%;
+    background-color: #000000f3;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    scroll-snap-stop: unset;
+  }
+
+  .nav-list {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: flex-start;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+   }
+
+   .nav-list li {
+    margin: 30px 0;
+    margin-right: 0;
+   }
+
+  .order-now-btn {
+    padding: 14px 30px;
+    margin-top: 28px;
+    font-size: 13px;
+  }
+
+}
+
+/*=================================
+  media query for 995 ends here
+=================================*/
+
+/*=================================
+  media query for 768 starts here
+=================================*/
+
+@media only screen and (max-width: 768px) {
+
+  .banner-container { margin-top: 55px; }
+  .section-heading { font-size: 46px; }
+  .section-sub-heading { font-size: 18px; }
+  .h3-heading { 
+    font-size: 44px;
+    line-height: 53px;
+  }
+
+  .section-para {
+    margin-top: 10px;
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .order-now-btn {
+    padding: 14px 30px;
+    margin-top: 28px;
+    font-size: 13px;
+  }
+
+  .banner-fig {
+    margin-top: 40px;
+    width: 75%;
+  }
+
+  .thai-food-heading { font-size: 18px; }
+  .dish-price { font-size: 16px; }
+  .cart-icon::before { padding: 14px; }
+
+  .cart-icon {
+    margin-top: 9px;
+    width: 46px;
+    height: 43px;
+  }
+
+  .fast-food-info {
+    padding: 16px;
+    bottom: -80px;
+  }
+
+  .fast-food-list li:nth-child(n + 4) { margin-top: 105px; }
+
+  .about-info { 
+    padding: 0 3%;
+    justify-content: center;
+  }
+
+  .about-info .h3-heading {
+    font-size: 35px;
+    line-height: 42px;
+  }
+
+  .about-info .section-para { font-size: 13px; }
+
+  .read-more-btn { 
+    padding: 12px 8%;
+    font-size: 13px;
+  }
+  
+  .item-heading { font-size: 14px; }
+
+  .menu-list-items { flex-direction: column; }
+
+  .menu-list-items li:nth-child(odd) { margin-right: 0; }
+
+  .menu-list-items li:nth-child(n + 2) { margin-top: 30px; }
+
+  .menu-fig {
+    width: 170px;
+    height: 77px;
+  }
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . . . . . . . . . . . . . . . . . . . ";
+  }
+
+  .menu-name-price { margin-top: 10px; }
+  .menu-item-info .section-para { margin-top: 5px; }
+
+  .delivery-rewards-section { padding: 50px 0; }
+
+  .delivery-rewards-section .section-heading { 
+    font-size: 35px;
+    line-height: 42px;
+  }
+
+  .delivery-rewards-section .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .delivery-fig {
+    align-self: center;
+    margin-top: 20px;
+    width: 50%;
+    position: static;
+  }
+  
+  .reward-container { margin-top: 20px; }
+  .news-section { padding: 45px 0; }
+
+  .latest-watch-section { padding: 35px 0; }
+  .review-para {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .next::before,
+  .previous::before { font-size: 62px; }
+
+  .previous, .next {
+    width: 40px;
+    height: 62px;
+  }
+
+  .prev-next-btn { top: 35%; }
+  .review-section { padding: 50px 0; }
+  .para-bg { bottom: -130px; }
+  .slider-info,
+  .slider-profilei-fig { margin-top: 20px; }
+
+  .slider-profilei-fig {
+    width: 75px;
+    height: 75px;
+  }
+
+  .review-section .wrapper { width: 95%; }
+
+  .contact-us-top .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe-container .h3-heading,
+  .subscribe-container .section-para { text-align: center; }
+
+  .subscribe-input-grp { width: 100%; }
+
+  .subscribe-container { width: 75%; }
+
+  .subscribe-fig {
+    width: 45%;
+    margin-top: 30px;
+  }
+
+  .contact-us-bottom .wrapper { 
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-heading { text-align: center; }
+  .contact-container { 
+    margin-right: 0;
+    width: 80%;
+  }
+
+  .contact-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .contact-container .input-grp {
+    width: 100%;
+    height: 50px;
+  }
+
+  .textarea-input { width: 100%; }
+  .mapouter {
+    width: 80%;
+    margin-top: 30px;
+  }
+
+  .gmap_iframe {
+    width: 100%;
+    height: 300px;
+  }
+
+  .send-msge-btn {
+    padding: 16px 8%;
+    font-size: 13px;
+  }
+
+  .contact-us-bottom { padding: 40px 0; }
+
+  .address,
+  .time { width: 100%; }
+
+  .footer-top { padding: 45px 0; }
+
+  .footer-bottom { padding: 50px 0; }
+
+  .footer-bottom .wrapper {
+    flex-direction: column;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav-list {
+     margin-bottom: 15px;
+     text-align: center;
+  }
+
+  .copyright { text-align: center; }
+
+  .social-media-list { margin-top: 15px; }
+
+  .about-circle-container {
+    align-items: center;
+  }
+  
+  .about-top { padding: 50px 0; }
+
+  .about-bottom {
+    padding: 35px 0 65px;
+    background-color: #89B758;
+  }
+
+  .about-circle-container {
+    width: 100%;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .about-bottom .wrapper {
+    flex-direction: column;
+    /* align-items: start; */
+  }
+  
+  .image-container {
+    width: 60%;
+    margin-top: 60px;
+    align-items: center;
+  }
+
+  .fast-delivery-icon {
+    margin-top: 20px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .about-bottom-list {
+    margin-top: 20px;
+  }
+
+  .new-food-icon::before {}
+
+  .about-bottom-list li span {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-bottom-list li { width: 100%; }
+
+  .about-bottom-list li:not(:last-child) { margin-bottom: 20px; }
+
+  .about-bottom-list { 
+    align-content: center;
+  }
+
+  .about-content { 
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-us-top .section-heading { text-align: center; }
+
+  .modal-content { width: 46%; }
+  
+}
+
+/*=================================
+  media query for 768 ends here
+=================================*/
+
+/*=================================
+  media query for 640 starts here
+=================================*/
+
+@media only screen and (max-width: 640px) {
+
+  .fast-food-section { padding: 45px 0 80px 0; }
+  .banner-section { padding: 65px 0; }
+  .banner-container { margin-top: 45px; }
+  .section-para { width: 98%; }
+
+  .banner-fig {
+    margin-top: 30px;
+    width: 85%;
+  }
+
+  .fast-food-list li { width: 90%; }
+
+  .fast-food-list .thai-food-fig { height: 46vh; }
+
+  .fast-food-list li:not(:first-child) { margin-top: 80px; }
+
+  .fast-food-list li:not(:last-child) { margin-right: 0; }
+
+  .fast-food-list {
+    margin-top: 55px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fast-food-info {
+    padding: 14px;
+    bottom: -40px;
+  }
+
+  .about-info .h3-heading {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .about-top { padding: 45px 0; }
+
+  .about-top .wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-container {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .about-container { height: auto; }
+
+  .about-side-fig {
+    margin-right: 0;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+
+  .about-right-fig { margin-bottom: 0; }
+
+  .about-info {
+    padding: 5%;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .menu-fig {
+    width: 190px;
+    height: 77px;
+  }
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . . . . . . . . . . . . ";
+  }
+
+  .delivery-rewards-section .section-heading { 
+    font-size: 30px;
+    line-height: 38px;
+  }
+  
+  .delivery-fig { width: 60%; }
+
+  .news-blogs-container { flex-direction: column; }
+
+  .news-blogs-container article:not(:last-child) { 
+    margin-top: 25px;
+    margin-right: 0;
+  }
+
+  .review-para {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .next::before,
+  .previous::before { font-size: 55px; }
+
+  .previous, .next {
+    width: 35px;
+    height: 53px;
+  }
+
+  .subscribe-container { width: 88%; }
+
+  .subscribe-fig {
+    width: 55%;
+    margin-top: 30px;
+  }
+
+  .send-msge-btn {
+    padding: 15px 12%;
+    font-size: 12px;
+  }
+
+  .footer-top .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-description {
+    margin-top: 25px;
+    margin-right: 0;
+  }
+
+  .logo-description .section-para { margin-top: 10px; }
+
+  .contact-info-list {
+    align-items: center;
+  }
+
+  .feed {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .feed-list { justify-content: center; }
+
+  .image-container {
+    margin-top: 60px;
+    width: 70%;
+  }
+
+  .address,
+  .time { text-align: center; }
+
+  .modal-content { width: 55%; }
+
+}
+
+/*=================================
+  media query for 640 ends here
+=================================*/
+
+/*=================================
+  media query for 480 starts here
+=================================*/
+
+@media only screen and (max-width: 480px) {
+  
+  .fast-food-section { padding: 35px 0 70px 0; }
+  .banner-section { padding: 50px 0; }
+  .section-heading { font-size: 40px; }
+  .section-para { font-size: 13px; }
+  .section-sub-heading { font-size: 16px; }
+  .fast-food-list { margin-top: 45px; }
+
+  .h3-heading {
+    font-size: 38px;
+    line-height: 54px;
+  }
+
+  .order-now-btn {
+    padding: 12px 23px;
+    margin-top: 26px;
+    font-size: 13px;
+  }
+
+  .about-info .h3-heading {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .menu-fig {
+    width: 90%;
+    height: 77px;
+  }
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . . .";
+  }
+
+  .delivery-rewards-section .section-heading { 
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .delivery-fig { width: 70%; }
+
+  .review-para { 
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .next::before,
+  .previous::before { font-size: 45px; }
+
+  .previous, .next {
+    width: 30px;
+    height: 45px;
+  }
+
+  .subscribe-container { width: 100%; }
+
+  .subscribe-fig {
+    margin-top: 30px;
+    width: 70%;
+  }
+
+  .subscribe-btn {
+    padding: 6px 5%;
+    font-size: 11px;
+  }
+
+  .subscribe-input { padding: 15px; }
+  ::placeholder { font-size: 12px; }
+
+  .contact-container,
+  .mapouter { width: 100%; }
+
+  .send-msge-btn {
+    padding: 14px 10%;
+    font-size: 11px;
+  }
+
+  .contact-us-bottom { padding: 30px 0; }
+
+  .image-container {
+    margin-top: 40px;
+    width: 85%;
+  }
+
+  .modal-content { width: 70%; }
+
+}
+
+/*=================================
+  media query for 480 ends here
+=================================*/
+
+/*=================================
+  media query for 375 starts here
+=================================*/
+
+@media only screen and (max-width: 375px) {
+
+  .fast-food-section { padding: 35px 0 60px 0; }
+  .banner-section { padding: 40px 0; }
+  .section-heading { font-size: 38px; }
+  .section-sub-heading { font-size: 15px; }
+
+  .h3-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .order-now-btn {
+    padding: 10px 21px;
+    margin-top: 24px;
+    font-size: 12px;
+  }
+
+  .about-info { padding: 7%; }
+
+  .menu-fig {
+    width: 100%;
+    height: 77px;
+  }
+
+  .menu-item-info .thai-food-heading::after {
+    content: " . . .";
+  }
+
+  .delivery-rewards-section .section-heading { 
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .delivery-fig { width: 80%; }
+  
+  .review-para { 
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .next::before,
+  .previous::before { font-size: 35px; }
+
+  .previous, .next {
+    width: 20px;
+    height: 34px;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe-btn {
+    padding: 14px 5%;
+    margin-top: 18px;
+    width: 50%;
+    font-size: 11px;
+  }
+
+  .subscribe-input { padding: 12px; }
+
+  .image-container {
+    margin-top: 20px;
+    width: 95%;
+  }
+
+  .modal-content { width: 78%; }
+
+}
+
+/*=================================
+  media query for 375 ends here
+=================================*/
+
+/*=================================
+  media query for 320 starts here
+=================================*/
+
+@media only screen and (max-width: 320px) {
+
+  .section-heading { font-size: 36px; }
+  .section-sub-heading { font-size: 13px; }
+
+  .h3-heading {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  .order-now-btn {
+    padding: 9px 18px;
+    margin-top: 24px;
+    font-size: 12px;
+  }
+
+  .about-info .h3-heading {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .item-heading {
+    font-size: 12px;
+  }
+
+  .modal-content { width: 80%; }
+
+}
+
+/*=================================
+  media query for 320 ends here
+=================================*/
